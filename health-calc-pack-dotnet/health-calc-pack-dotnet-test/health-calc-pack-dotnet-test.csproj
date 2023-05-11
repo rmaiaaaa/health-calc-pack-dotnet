@@ -23,4 +23,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\health-calc-pack-dotnet\health-calc-pack-dotnet.csproj" />
+  </ItemGroup>
+
 </Project>

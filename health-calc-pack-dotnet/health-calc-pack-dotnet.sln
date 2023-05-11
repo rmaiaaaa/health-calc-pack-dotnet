@@ -3,11 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "health-calc-pack-dotnet", "health-calc-pack-dotnet\health-calc-pack-dotnet.csproj", "{6D6F2799-09E1-478F-8358-CA765D9647AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "health-calc-pack-dotnet", "health-calc-pack-dotnet\health-calc-pack-dotnet.csproj", "{6D6F2799-09E1-478F-8358-CA765D9647AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "health-calc-pack-dotnet-console", "health-calc-pack-dotnet-console\health-calc-pack-dotnet-console.csproj", "{36196BDE-A58E-4BEA-81FE-E2391C09BEAE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "health-calc-pack-dotnet-console", "health-calc-pack-dotnet-console\health-calc-pack-dotnet-console.csproj", "{36196BDE-A58E-4BEA-81FE-E2391C09BEAE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6D6F2799-09E1-478F-8358-CA765D9647AD} = {6D6F2799-09E1-478F-8358-CA765D9647AD}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "health-calc-pack-dotnet-test", "health-calc-pack-dotnet-test\health-calc-pack-dotnet-test.csproj", "{3F53DA24-1BF5-4A54-A098-592ABCE6D4C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "health-calc-pack-dotnet-test", "health-calc-pack-dotnet-test\health-calc-pack-dotnet-test.csproj", "{3F53DA24-1BF5-4A54-A098-592ABCE6D4C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
