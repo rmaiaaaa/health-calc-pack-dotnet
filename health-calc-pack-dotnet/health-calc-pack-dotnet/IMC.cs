@@ -24,7 +24,7 @@ namespace health_calc_pack_dotnet
             else if (IMC >= 30 && IMC < 40)
                 result = "OBESIDADE";
             else if (IMC >= 40)
-                result  = "OBSIDADE GRAVE";
+                result  = "OBESIDADE GRAVE";
 
             return result;
 
