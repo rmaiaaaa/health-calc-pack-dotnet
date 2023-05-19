@@ -36,6 +36,16 @@ namespace health_calc_pack_dotnet_test.PackLibrary
         }
 
         [Fact]
+        public void CalcularMacroNutrientes_QuandoDadosInvalidos_EntaoLevantaExcecao()
+        {
+            MacroNutrientes macroNutrientes = new MacroNutrientes();
+            double peso = 0;
+
+            Assert.Throws<Exception>(() => macroNutrientes.CalcularMacroNutrientes(0, peso));
+
+        }
+
+        [Fact]
         public void ValidarPeso_QuandoDadoInvalido_EntaoRetornaFalso()
         {
             
