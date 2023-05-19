@@ -13,6 +13,12 @@ namespace health_calc_pack_dotnet
     {
         public MacroNutrientesModel CalcularMacroNutrientes(ObjetivoFisicoEnum ObjetivoFisico,  double Peso)
         {
+
+            if (!ValidarDados(Peso))
+            {
+                throw new Exception("Peso inválido.");
+            }
+
             if (ObjetivoFisico == ObjetivoFisicoEnum.PerderPeso)
             {
                 return new MacroNutrientesModel()
@@ -45,6 +51,11 @@ namespace health_calc_pack_dotnet
                 return new MacroNutrientesModel();
             }
 
+        }
+
+        public bool ValidarDados(double Peso)
+        {
+            return (Peso > 0.0);
         }
     }
 }

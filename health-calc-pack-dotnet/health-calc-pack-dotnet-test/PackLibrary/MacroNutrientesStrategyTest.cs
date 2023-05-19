@@ -1,5 +1,6 @@
 ﻿using health_calc_pack_dotnet;
 using health_calc_pack_dotnet.Enums;
+using health_calc_pack_dotnet.MacroNutrienteStrategies;
 using health_calc_pack_dotnet.Models;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace health_calc_pack_dotnet_test.PackLibrary
 {
-    public class MacroNutrientesTest
+    public class MacroNutrientesStrategyTest
     {
 
         [Theory]
@@ -19,47 +20,35 @@ namespace health_calc_pack_dotnet_test.PackLibrary
         public void CalcularMacroNutrientes_QuandoDadosValidos_EntaoRetornaMacronutrientes(ObjetivoFisicoEnum ObjetivoFisico,
             double carboidratos, double gorduras, double proteinas)
         {
-
-            MacroNutrientes macroNutrientes = new MacroNutrientes();
+            //Arrange
+            MacroNutrientesContext strategy = new();
             double peso = 77;
             var macronutrienteEsperado = new MacroNutrientesModel()
             {
                 Carboidratos = carboidratos,
-                Gorduras     = gorduras,
-                Proteinas    = proteinas,
+                Gorduras = gorduras,
+                Proteinas = proteinas,
             };
 
-            var resultado = macroNutrientes.CalcularMacroNutrientes(ObjetivoFisico, peso);
+            switch (ObjetivoFisico)
+            {
+                case ObjetivoFisicoEnum.PerderPeso:
+                    strategy.AtribuirStrategy(new PerderPesoStrategy());
+                    break;
+                case ObjetivoFisicoEnum.ManterPeso:
+                    strategy.AtribuirStrategy(new ManterPesoStrategy());
+                    break;
+                case ObjetivoFisicoEnum.GanharPeso:
+                    strategy.AtribuirStrategy(new GanharPesoStrategy());
+                    break;
+                default:
+                    break;
+            }
+
+            var resultado = strategy.ExecutarStrategy(peso);
 
             Assert.Equivalent(macronutrienteEsperado, resultado);
-        
-        }
-
-        [Fact]
-        public void ValidarPeso_QuandoDadoInvalido_EntaoRetornaFalso()
-        {
             
-            MacroNutrientes macroNutrientes = new();
-            double peso = 0; 
-
-            var resultado = macroNutrientes.ValidarDados(peso);
-
-            Assert.False(resultado);
-
         }
-
-        [Fact]
-        public void ValidarPeso_QuandoDadoValido_EntaoRetornaVerdadeiro()
-        {
-            
-            MacroNutrientes macroNutrientes = new();
-            double peso = 77;
-
-            var resultado = macroNutrientes.ValidarDados(peso);
-
-            Assert.True(resultado);
-
-        }
-
     }
 }

@@ -5,34 +5,37 @@ namespace health_calc_pack_dotnet
 {
     public class IMC : IIMC
     {
-        public double Calc(double Height, double Weight)
+        public double Calcular(double altura, double peso)
         {
-            double calculo = Weight / Math.Pow(Height, 2);
+            if (!ValidarDados(altura, peso)) 
+            {
+                throw new Exception("Peso e/ou altura inválidos.");
+            }
+
+            double calculo = peso / Math.Pow(altura, 2);
             return Math.Round(calculo,2);
         }
 
-        public string GetIMCCategory(double IMC)
+        public string ObterCategoriaIMC(double imc)
         {
-
             var result = string.Empty;
-            if (IMC < 18.5)
+            if (imc < 18.5)
                 result = "MAGREZA";
-            else if (IMC >= 18.5 && IMC < 25)
+            else if (imc >= 18.5 && imc < 25)
                 result = "NORMAL";
-            else if (IMC >= 25 && IMC < 30)
+            else if (imc >= 25 && imc < 30)
                 result = "SOBREPESO";
-            else if (IMC >= 30 && IMC < 40)
+            else if (imc >= 30 && imc < 40)
                 result = "OBESIDADE";
-            else if (IMC >= 40)
-                result  = "OBESIDADE GRAVE";
+            else if (imc >= 40)
+                result = "OBESIDADE GRAVE";
 
             return result;
-
         }
 
-        public bool IsValidData(double Height, double Weight)
+        public bool ValidarDados(double altura, double peso)
         {
-            return (Height < 3.0 && Weight <= 300);
+            return (altura < 3.0 && peso <= 300);
         }
     }
 }
