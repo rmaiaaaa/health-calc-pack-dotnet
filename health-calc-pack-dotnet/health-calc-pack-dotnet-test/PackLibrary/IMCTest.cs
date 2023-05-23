@@ -1,6 +1,5 @@
 using health_calc_pack_dotnet;
 using health_calc_pack_dotnet.Constantes;
-using health_calc_pack_dotnet.Enums;
 using health_calc_pack_dotnet.Interfaces;
 
 namespace health_calc_pack_dotnet_test.PackLibrary
@@ -8,7 +7,7 @@ namespace health_calc_pack_dotnet_test.PackLibrary
     public class IMCTest
     {
         [Fact]
-        public void calcularIMC_QuandoDadosValidos_EntaoRetornaIndice()
+        public void CalcularIMC_QuandoDadosValidos_EntaoRetornaIndice()
         {
 
             IIMC imc = new IMC();

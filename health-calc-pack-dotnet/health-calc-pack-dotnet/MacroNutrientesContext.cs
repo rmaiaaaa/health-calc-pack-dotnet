@@ -1,10 +1,5 @@
 ﻿using health_calc_pack_dotnet.Interfaces;
 using health_calc_pack_dotnet.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace health_calc_pack_dotnet
 {
@@ -18,9 +13,9 @@ namespace health_calc_pack_dotnet
             this.strategy = strategy;
         }
 
-        public MacroNutrientesModel ExecutarStrategy(double Peso)
+        public MacroNutrientesModel ExecutarStrategy(double peso)
         {
-            return strategy!.CalcularMacroNutrientes(Peso);
+            return strategy!.CalcularMacroNutrientes(peso);
         }
     }
 }

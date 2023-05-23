@@ -1,49 +1,44 @@
 ﻿using health_calc_pack_dotnet.Enums;
 using health_calc_pack_dotnet.Interfaces;
 using health_calc_pack_dotnet.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace health_calc_pack_dotnet
 {
     public class MacroNutrientes : IMacroNutrientes
     {
-        public MacroNutrientesModel CalcularMacroNutrientes(ObjetivoFisicoEnum ObjetivoFisico,  double Peso)
+        public MacroNutrientesModel CalcularMacroNutrientes(ObjetivoFisicoEnum objetivoFisico,  double peso)
         {
 
-            if (!ValidarDados(Peso))
+            if (!ValidarDados(peso))
             {
                 throw new Exception("Peso inválido.");
             }
 
-            if (ObjetivoFisico == ObjetivoFisicoEnum.PerderPeso)
+            if (objetivoFisico == ObjetivoFisicoEnum.PerderPeso)
             {
                 return new MacroNutrientesModel()
                 {
-                    Carboidratos = 3.0 * Peso,
-                    Gorduras = 3.0 * Peso,
-                    Proteinas = 4.0 * Peso,
+                    Carboidratos = 3.0 * peso,
+                    Gorduras = 3.0 * peso,
+                    Proteinas = 4.0 * peso,
                 };
             }
-            else if (ObjetivoFisico == ObjetivoFisicoEnum.ManterPeso)
+            else if (objetivoFisico == ObjetivoFisicoEnum.ManterPeso)
             {
                 return new MacroNutrientesModel()
                 {
-                    Carboidratos = 4.0 * Peso,
-                    Gorduras = 2.0 * Peso,
-                    Proteinas = 4.0 * Peso,
+                    Carboidratos = 4.0 * peso,
+                    Gorduras = 2.0 * peso,
+                    Proteinas = 4.0 * peso,
                 };
             }
-            else if (ObjetivoFisico == ObjetivoFisicoEnum.GanharPeso)
+            else if (objetivoFisico == ObjetivoFisicoEnum.GanharPeso)
             {
                 return new MacroNutrientesModel()
                 {
-                    Carboidratos = 4.0 * Peso,
-                    Gorduras = 1.0 * Peso,
-                    Proteinas = 2.0 * Peso,
+                    Carboidratos = 4.0 * peso,
+                    Gorduras = 1.0 * peso,
+                    Proteinas = 2.0 * peso,
                 };
             }
             else
@@ -53,9 +48,9 @@ namespace health_calc_pack_dotnet
 
         }
 
-        public bool ValidarDados(double Peso)
+        public bool ValidarDados(double peso)
         {
-            return (Peso > 0.0);
+            return (peso > 0.0);
         }
     }
 }

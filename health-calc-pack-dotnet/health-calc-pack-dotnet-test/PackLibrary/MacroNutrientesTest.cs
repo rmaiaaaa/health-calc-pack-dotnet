@@ -1,11 +1,6 @@
 ﻿using health_calc_pack_dotnet;
 using health_calc_pack_dotnet.Enums;
 using health_calc_pack_dotnet.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace health_calc_pack_dotnet_test.PackLibrary
 {
@@ -16,7 +11,7 @@ namespace health_calc_pack_dotnet_test.PackLibrary
         [InlineData(ObjetivoFisicoEnum.PerderPeso, 231, 231, 308)]
         [InlineData(ObjetivoFisicoEnum.ManterPeso, 308, 154, 308)]
         [InlineData(ObjetivoFisicoEnum.GanharPeso, 308, 77, 154)]
-        public void CalcularMacroNutrientes_QuandoDadosValidos_EntaoRetornaMacronutrientes(ObjetivoFisicoEnum ObjetivoFisico,
+        public void CalcularMacroNutrientes_QuandoDadosValidos_EntaoRetornaMacronutrientes(ObjetivoFisicoEnum objetivoFisico,
             double carboidratos, double gorduras, double proteinas)
         {
 
@@ -29,7 +24,7 @@ namespace health_calc_pack_dotnet_test.PackLibrary
                 Proteinas    = proteinas,
             };
 
-            var resultado = macroNutrientes.CalcularMacroNutrientes(ObjetivoFisico, peso);
+            var resultado = macroNutrientes.CalcularMacroNutrientes(objetivoFisico, peso);
 
             Assert.Equivalent(macronutrienteEsperado, resultado);
         
