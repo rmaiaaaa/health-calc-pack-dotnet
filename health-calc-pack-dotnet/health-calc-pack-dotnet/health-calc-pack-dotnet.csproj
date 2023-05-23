@@ -8,6 +8,7 @@
     <Title>health-calc-pack-dotnet</Title>
     <PackageIcon>Icone Health Pack.png</PackageIcon>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>health-calc-pack-dotnet-grupo-4</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
